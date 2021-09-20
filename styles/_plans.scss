@@ -1,0 +1,93 @@
+.plans {
+  margin-bottom: 15rem;
+  padding-top: 8rem;
+  box-shadow: $shadow-lg inset;
+
+  & h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  & p {
+    margin: 0 auto 6rem auto;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    max-width: $max-width;
+    margin: auto;
+  }
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: calc((#{$max-width} - (5rem * 2)) / 3);
+  height: 76rem;
+  background-color: $color-white;
+  border: 2px solid $color-gray-light-5;
+  border-radius: 1rem;
+
+  &--recommended {
+    border: 2px solid $color-red;
+  }
+
+  &:not(:last-child) {
+    margin-right: 5rem;
+  }
+
+  &__img {
+    margin: 8rem 0 3rem 0;
+  }
+
+  & h3 {
+    margin-bottom: 3rem;
+  }
+
+  & li {
+    display: flex;
+    align-items: center;
+
+    & img {
+      margin-right: 2rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  & ul {
+    margin-bottom: auto;
+  }
+
+  &__price {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: $color-gray-dark;
+
+    & > strong {
+      font-weight: 500;
+      color: $color-black;
+    }
+  }
+
+  &__button {
+    margin-bottom: 5rem;
+    padding: 1.3rem 6.5rem;
+    border: 2px solid $color-red;
+
+    &.button--secondary {
+      font-weight: 700;
+    }
+
+    &.button--primary {
+      border-radius: 5rem;
+      width: max-content;
+      height: max-content;
+    }
+  }
+}

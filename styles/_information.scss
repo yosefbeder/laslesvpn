@@ -1,0 +1,46 @@
+.information {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  max-width: $max-width;
+  margin: 0 auto 9.6rem auto;
+  height: 20rem;
+  padding: 3.7rem;
+
+  border-radius: 1rem;
+  box-shadow: $shadow-lg;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:not(:last-child) {
+      border-right: 2px solid $color-gray-light-2;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: $color-red-very-light;
+    border-radius: 50%;
+
+    margin-right: 3.65rem;
+  }
+
+  &__value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__label {
+    font-size: 2rem;
+    color: $color-gray-dark;
+  }
+}

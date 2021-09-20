@@ -1,0 +1,26 @@
+.locations {
+  max-width: $max-width;
+  margin: 0 auto 5rem auto;
+  text-align: center;
+
+  & h2 {
+    text-transform: none;
+    margin-bottom: 2rem;
+  }
+
+  & p {
+    margin: 0 auto 15.5rem auto;
+  }
+
+  &__img {
+    margin-bottom: 0.6rem;
+  }
+
+  &__sponsers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20.09rem;
+    overflow: hidden;
+  }
+}

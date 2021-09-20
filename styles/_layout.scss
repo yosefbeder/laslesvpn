@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: $max-width;
+  margin: 4.5rem auto 8.9rem auto;
+
+  &__list {
+    display: flex;
+    color: $color-gray-dark;
+
+    &-item:not(:last-child) {
+      margin-right: 3.5rem;
+    }
+  }
+
+  &__button-group {
+    & > button:not(:last-child) {
+      margin-right: 2.5rem;
+    }
+  }
+}

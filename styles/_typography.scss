@@ -1,0 +1,44 @@
+body {
+  font-family: $font-primary;
+  font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3 {
+  color: $color-black;
+  font-weight: 500;
+}
+
+h2,
+h3 {
+  text-transform: capitalize;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 7rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+  line-height: 5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p,
+li {
+  color: $color-gray-dark;
+  line-height: 1.87;
+}
+
+p {
+  max-width: 55.5rem;
+}
+
+li {
+  font-size: 1.4rem;
+}
