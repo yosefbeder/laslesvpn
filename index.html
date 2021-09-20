@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAlCAYAAADIgFBEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANjSURBVHgBtZjdUdtAEMd3T4BFAjOmA6UCzAODeIpdAe4AU0GSCmwqCKkAUwGhApQ3M7woFUQdWDPB2E5sXXZlyZGlk2R98J/xSLrbvfvdnW73ZICKGpum8Wqaj3yFikKoIAbYA3ikW4N+zh+AztFo5EBJlYaJgYSqBFQKJgWkMlBhmByQSkCFYLYEKQ20NUxBkFJAYhujPBAJYKW4+n7bbvtcmC1m5PpgNOp4dIWKQFgV5P1oNAgffpvmgEbXT7HNXTKsC6QOIKwTpCoQ1g1SBQjfAqQsEL4VyNZAun5yZFkuP6y39i7AoG4Q1iH5ZW37xnx+Gz74M/Nimj26uYWaQaLKmiGC7RC0JQKifhEQargN2R0n6rNmSAv6F4GjobAZqkBez84+0QguIVttsvusAkIpv8fLKZ20mUOAlF1Va0IxiqlpXkrEGxrhHWTLIruvbB+vQMQvKgcq7woN8VhR97AfiwGT8/MuQQz5ntcXMrSYzWy+sn0ciNtFRWIVUh7TT7biFVS2YTw+PW1Jz0t7wRM6sm03vPekvHkh/2g9lT0k+qRXRdD8NOMVtM1/rUEo/uwK8YgRu2lOBh63Wv/bJD8k/ygQwTgKNyP3CLED0MMYME9ppo+ub842+UtN60KOGMaJF/4F+BDeS1W9EB3IEL0TvXhZtB2BaCScpHQFKjoj44tIw4l69LzLcbudWF4WLyv5fEz4RNqhZUvWI9piCfADkqNohyczf2cQdcyzuTebJeIIa28Vg4x4+ULX7RBWFU48xJ+8TJaq0UaQHnhnMLXCpB/fJcEABgrbhzAZ7qrriXYxFBwzVPueZ4d2jR+mlylhHDXtPpzBSNZPaEdKf2ATag9V0VtK++D52fYT5SoUqxsiDenccc0zxYApNg6kZ3z/mNCYTvsUlZVLS333KBjerc8zlEvuybib0RlAsW+mtS8F0SYq4lkgzoFXAdRK8/n8ChQ7JwJhQDkZGSDOO11f56o1DL+o9NDJAKpbDveHwYu9AcPiJOYbKNJ8neIvUJqRk/2sA3lUwemPd5MBdUGs4tX1wdPTjao+98Pfh5LygneSau3ppbep3qZrC9UnAJeCpE1B7dtho2FFl6UwTFScrRfBTFECdXRdd6ONS0oRk8nEoKTYxOXS1TTN3S/wl8g/oYi2a8WRx9kAAAAASUVORK5CYII=" type="image/png" />
+    <title>LaslesVpn</title>
+    <script type="module" crossorigin src="/assets/index.7063ee1b.js"></script>
+    <link rel="stylesheet" href="/assets/index.8a944418.css">
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="logo">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAlCAYAAADIgFBEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANjSURBVHgBtZjdUdtAEMd3T4BFAjOmA6UCzAODeIpdAe4AU0GSCmwqCKkAUwGhApQ3M7woFUQdWDPB2E5sXXZlyZGlk2R98J/xSLrbvfvdnW73ZICKGpum8Wqaj3yFikKoIAbYA3ikW4N+zh+AztFo5EBJlYaJgYSqBFQKJgWkMlBhmByQSkCFYLYEKQ20NUxBkFJAYhujPBAJYKW4+n7bbvtcmC1m5PpgNOp4dIWKQFgV5P1oNAgffpvmgEbXT7HNXTKsC6QOIKwTpCoQ1g1SBQjfAqQsEL4VyNZAun5yZFkuP6y39i7AoG4Q1iH5ZW37xnx+Gz74M/Nimj26uYWaQaLKmiGC7RC0JQKifhEQargN2R0n6rNmSAv6F4GjobAZqkBez84+0QguIVttsvusAkIpv8fLKZ20mUOAlF1Va0IxiqlpXkrEGxrhHWTLIruvbB+vQMQvKgcq7woN8VhR97AfiwGT8/MuQQz5ntcXMrSYzWy+sn0ciNtFRWIVUh7TT7biFVS2YTw+PW1Jz0t7wRM6sm03vPekvHkh/2g9lT0k+qRXRdD8NOMVtM1/rUEo/uwK8YgRu2lOBh63Wv/bJD8k/ygQwTgKNyP3CLED0MMYME9ppo+ub842+UtN60KOGMaJF/4F+BDeS1W9EB3IEL0TvXhZtB2BaCScpHQFKjoj44tIw4l69LzLcbudWF4WLyv5fEz4RNqhZUvWI9piCfADkqNohyczf2cQdcyzuTebJeIIa28Vg4x4+ULX7RBWFU48xJ+8TJaq0UaQHnhnMLXCpB/fJcEABgrbhzAZ7qrriXYxFBwzVPueZ4d2jR+mlylhHDXtPpzBSNZPaEdKf2ATag9V0VtK++D52fYT5SoUqxsiDenccc0zxYApNg6kZ3z/mNCYTvsUlZVLS333KBjerc8zlEvuybib0RlAsW+mtS8F0SYq4lkgzoFXAdRK8/n8ChQ7JwJhQDkZGSDOO11f56o1DL+o9NDJAKpbDveHwYu9AcPiJOYbKNJ8neIvUJqRk/2sA3lUwemPd5MBdUGs4tX1wdPTjao+98Pfh5LygneSau3ppbep3qZrC9UnAJeCpE1B7dtho2FFl6UwTFScrRfBTFECdXRdd6ONS0oRk8nEoKTYxOXS1TTN3S/wl8g/oYi2a8WRx9kAAAAASUVORK5CYII=" alt="Logo" />
+        <div class="logo__text">Lasles<bold>VPN</bold></div>
+      </div>
+      <div class="nav__list">
+        <a href="#" class="nav__list-item">About</a>
+        <a href="#" class="nav__list-item">Features</a>
+        <a href="#" class="nav__list-item">Pricing</a>
+        <a href="#" class="nav__list-item">Testimonials</a>
+        <a href="#" class="nav__list-item">Help</a>
+      </div>
+      <div class="nav__button-group">
+        <button class="button button--tertiary">Sign in</button>
+        <button class="button button--secondary">Sign up</button>
+      </div>
+    </nav>
+    <section class="hero">
+      <div>
+        <h1>Want anything to be easy with <bold>LastVPN</bold></h1>
+        <p>
+          Provide a network for all your needs with ease and fun using LaslesVPN
+          discover interesting features from us.
+        </p>
+        <button class="button button--primary">Get started</button>
+      </div>
+      <img
+        class="hero__img"
+        src="/assets/hero.86510a85.png"
+        alt="Someone using a laptop"
+      />
+    </section>
+
+    <section class="information">
+      <div class="information__item">
+        <div class="information__icon">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFkSURBVHgB7ZVdToNAEMdnIFqoH6E3wBvwVvrGEeoN6gksJ2h6gnoD6wnUG/BWSF+4gb0Bmxh0o13GxSfLh7u0iTHGX0I2mdnhzz87wwL889tA3Y3Pvh+YiNdE5MmiTSFEeLpepzq1WiL5aDQGovtqXCBenq9WD6p6A3QgWjSFzZZ4Z5HM8xy5uC1p99X3XThURIUdxxvVHqXIIE0ZAdy1pJeggZaTd86ngLhzwFI46ltWqFOv3cIlZRvLl7uGEKlu+/4Y2k6yIHCO8twl03RQCNbFiVLkc9IBZkU56YjOTrE8p2K7nasEvxV5GQ4XhDgF1ZcS3fSTJOwskvv+rVwmoM/yJI6vmhJGi8Cso0DJRDpvdF1zksnfxDHAE+wDEXuz7YtBFLGv4ZoTsyg82BfZGCbn42q4JoKGweAAekSZUuQsjqMCYA4dkZcZk0/YS5LHaq61u0gOH+fcAU0sy2JYOYu/xweIBIB2L3NYBwAAAABJRU5ErkJggg==" alt="User" />
+        </div>
+        <div>
+          <div class="information__value">90+</div>
+          <div class="information__label">Users</div>
+        </div>
+      </div>
+      <div class="information__item">
+        <div class="information__icon">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAYAAAArK+5dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG9SURBVHgB5VXRbcIwED0HWlLRSmEDOkHzg4j4IZmAFcoGdAJggsIE0AnoBuQzEh9NJ2g2gA9KkyqJe66gMo5jTP+qvp/Ivrt39rs7B+Cvg+g4rV3XqsaxXaH0jq0zQl5vgsDXiT2Z4MNxhhmlA0KIJZgiA2B+FQTjXyVgp75MkiVQaoOSgYSftZrX8P2NzGyUxV3E8eQkOQP61OJ4UWaW3mDrOPdomB3z0A3K9EzZmQG6uNXk7TmAJ6tLVZYAiXrIyG+EddP0yF4GrEszJ2TB3xClGODHF7nkEuW5yy9pmvYJpzEWNsopfYDjK3ZlVPIEQsdcr1ah6FKQo9hligSoN7/ctlqFYm87HVsVo0yANTg6sVGpPBZ8smyoijlAWuQ0z6cVw3B/DgfgvjvOG3bKExs4QmkPhC7CzprLuEoHbec4S0YMeojqQXArM5QOGmbugyaQxFPY5PhuRQDlO7PHmPmWGZWP3dq2rUvTfAFBbw6l0hxgqIyNMNzkCqlU0nA+arCBwqmdivuUkKlKGu0EDGmSjPATcVsR/nwmOrFaCUSpMGikc/qzsWu3Fzhws3Niquc4J0nSN03Tgn+FLxu7pjFvmP0fAAAAAElFTkSuQmCC" alt="User" />
+        </div>
+        <div>
+          <div class="information__value">30+</div>
+          <div class="information__label">Locations</div>
+        </div>
+      </div>
+      <div class="information__item">
+        <div class="information__icon">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC+SURBVHgB7ZPBDcIgGIUfpNGD8dANOoKXJtzECRxBncQZ3KBu4Agc2UI3qIlXEWkMDaGNUUpMbPgu/3uQ8AP5H5D4AuKauiwXU0qXipAcA7gDVS7lpdOkZqyYAGdE4gGs5lKKRlO7mAFbxIVbQRGA1vpqSoVX7XifsCaEHGZS7syXHPu8T4YAzM02N8aauu7zUZoYCnPg/o33L9UiEBGi1KnV7oZ5MoczFQMQdnx/Rkr8J3ArUuJT4v888ePhCck2ab2+uVWHAAAAAElFTkSuQmCC" alt="User" />
+        </div>
+        <div>
+          <div class="information__value">50+</div>
+          <div class="information__label">Serveres</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <img
+        class="features__img"
+        src="/assets/features.507cdb36.png"
+        alt="Someone happy using his laptop"
+      />
+      <div>
+        <h2>We Provide Many Features You Can Use</h2>
+        <p>
+          You can explore the features that we provide with fun and have their
+          own functions each feature.
+        </p>
+        <ul>
+          <li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHaSURBVHgB3ZRBbtNAFIb/N44QS3MCzAWKb0B8gjaiRGJFuUEgSCwdlgilMidoWUKQ0hsUTsCUE7gnqBddVI3t12dHdWtPbHnSXf+V3/j5fTO/3xvgsYj6JPnLiYtrZ5g7eF7EKsM5KIv1ONJ9vu+E+IvJkOGE8jhsSYmZMPu/P/8BW0ixc06dZUdxA0aDQaBHX+NeEH/52eM0PZVHD3ZKiFWgx98MC1VzYUtAIZcpPy022QnZWXwKtwTcgdL0qLlY2bW2afVPllw8UFI00G/mf27j6iTZajW0BGgijMAcN18w8bv7cQVRinZhA7jMAr0/P4Eic1aY9jZC5IUHG8D7KCn/IWNvQ47rH01cEwI2rCrsEH+/tAEIPEObnqKqN0C74tIO4MRfTGXD2O0NKHSFBMZJCE1vvZe/p2U7SqfMrAAymEWuAWHmv0Yq46AC9QeA83qtyi41yI85VaHRxmuQbILiPoCyllK1gazdXTs/pzNSCPEQydycjQ9f1KC14EkWbRouC0JCWR40V2sQPYrWSVuCxIUP+m0Ud0JKkCRZgyS3vK9eHx5vhHd96//6eCDzEcpUei3VEwJ9x2UW3W9ZK8gdbOJDOa/yLH9WxMpRF9J1Z1JcdxV/fLoBYPXfUx5jD00AAAAASUVORK5CYII=" />
+            Powerfull online protection.
+          </li>
+          <li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHaSURBVHgB3ZRBbtNAFIb/N44QS3MCzAWKb0B8gjaiRGJFuUEgSCwdlgilMidoWUKQ0hsUTsCUE7gnqBddVI3t12dHdWtPbHnSXf+V3/j5fTO/3xvgsYj6JPnLiYtrZ5g7eF7EKsM5KIv1ONJ9vu+E+IvJkOGE8jhsSYmZMPu/P/8BW0ixc06dZUdxA0aDQaBHX+NeEH/52eM0PZVHD3ZKiFWgx98MC1VzYUtAIZcpPy022QnZWXwKtwTcgdL0qLlY2bW2afVPllw8UFI00G/mf27j6iTZajW0BGgijMAcN18w8bv7cQVRinZhA7jMAr0/P4Eic1aY9jZC5IUHG8D7KCn/IWNvQ47rH01cEwI2rCrsEH+/tAEIPEObnqKqN0C74tIO4MRfTGXD2O0NKHSFBMZJCE1vvZe/p2U7SqfMrAAymEWuAWHmv0Yq46AC9QeA83qtyi41yI85VaHRxmuQbILiPoCyllK1gazdXTs/pzNSCPEQydycjQ9f1KC14EkWbRouC0JCWR40V2sQPYrWSVuCxIUP+m0Ud0JKkCRZgyS3vK9eHx5vhHd96//6eCDzEcpUei3VEwJ9x2UW3W9ZK8gdbOJDOa/yLH9WxMpRF9J1Z1JcdxV/fLoBYPXfUx5jD00AAAAASUVORK5CYII=" />
+            Internet without borders.
+          </li>
+          <li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHaSURBVHgB3ZRBbtNAFIb/N44QS3MCzAWKb0B8gjaiRGJFuUEgSCwdlgilMidoWUKQ0hsUTsCUE7gnqBddVI3t12dHdWtPbHnSXf+V3/j5fTO/3xvgsYj6JPnLiYtrZ5g7eF7EKsM5KIv1ONJ9vu+E+IvJkOGE8jhsSYmZMPu/P/8BW0ixc06dZUdxA0aDQaBHX+NeEH/52eM0PZVHD3ZKiFWgx98MC1VzYUtAIZcpPy022QnZWXwKtwTcgdL0qLlY2bW2afVPllw8UFI00G/mf27j6iTZajW0BGgijMAcN18w8bv7cQVRinZhA7jMAr0/P4Eic1aY9jZC5IUHG8D7KCn/IWNvQ47rH01cEwI2rCrsEH+/tAEIPEObnqKqN0C74tIO4MRfTGXD2O0NKHSFBMZJCE1vvZe/p2U7SqfMrAAymEWuAWHmv0Yq46AC9QeA83qtyi41yI85VaHRxmuQbILiPoCyllK1gazdXTs/pzNSCPEQydycjQ9f1KC14EkWbRouC0JCWR40V2sQPYrWSVuCxIUP+m0Ud0JKkCRZgyS3vK9eHx5vhHd96//6eCDzEcpUei3VEwJ9x2UW3W9ZK8gdbOJDOa/yLH9WxMpRF9J1Z1JcdxV/fLoBYPXfUx5jD00AAAAASUVORK5CYII=" />
+            Supercharged VPN.
+          </li>
+          <li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHaSURBVHgB3ZRBbtNAFIb/N44QS3MCzAWKb0B8gjaiRGJFuUEgSCwdlgilMidoWUKQ0hsUTsCUE7gnqBddVI3t12dHdWtPbHnSXf+V3/j5fTO/3xvgsYj6JPnLiYtrZ5g7eF7EKsM5KIv1ONJ9vu+E+IvJkOGE8jhsSYmZMPu/P/8BW0ixc06dZUdxA0aDQaBHX+NeEH/52eM0PZVHD3ZKiFWgx98MC1VzYUtAIZcpPy022QnZWXwKtwTcgdL0qLlY2bW2afVPllw8UFI00G/mf27j6iTZajW0BGgijMAcN18w8bv7cQVRinZhA7jMAr0/P4Eic1aY9jZC5IUHG8D7KCn/IWNvQ47rH01cEwI2rCrsEH+/tAEIPEObnqKqN0C74tIO4MRfTGXD2O0NKHSFBMZJCE1vvZe/p2U7SqfMrAAymEWuAWHmv0Yq46AC9QeA83qtyi41yI85VaHRxmuQbILiPoCyllK1gazdXTs/pzNSCPEQydycjQ9f1KC14EkWbRouC0JCWR40V2sQPYrWSVuCxIUP+m0Ud0JKkCRZgyS3vK9eHx5vhHd96//6eCDzEcpUei3VEwJ9x2UW3W9ZK8gdbOJDOa/yLH9WxMpRF9J1Z1JcdxV/fLoBYPXfUx5jD00AAAAASUVORK5CYII=" />
+            No specific time limits.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="plans">
+      <h2>Choose your plan</h2>
+      <p>
+        Let's choose the package that is best for you and explore it happily and
+        cheerfully.
+      </p>
+
+      <div class="plans__container">
+        <div class="plan">
+          <img
+            src="/assets/free-plan.6d28c43f.png"
+            alt="Free Plan"
+            class="plan__img"
+          />
+          <h3>Free plan</h3>
+          <ul>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Unlimited Bandwidth
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Encrypted Connection
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              No Traffic Logs
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Works on All Devices
+            </li>
+          </ul>
+          <div class="plan__price"><strong>Free</strong></div>
+          <button class="plan__button button button--secondary">Select</button>
+        </div>
+        <div class="plan">
+          <img
+            src="/assets/standard-plan.0c09477f.png"
+            alt="Standard Plan"
+            class="plan__img"
+          />
+          <h3>Standard plan</h3>
+          <ul>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Unlimited Bandwidth
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Encrypted Connection
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Yes Traffic Logs
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Works on All Devices
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Connect Anyware
+            </li>
+          </ul>
+          <div class="plan__price"><strong>9$</strong> / mo</div>
+          <button class="plan__button button button--secondary">Select</button>
+        </div>
+        <div class="plan plan--recommended">
+          <img
+            src="/assets/premium-plan.24c5de25.png"
+            alt="Premium Plan"
+            class="plan__img"
+          />
+          <h3>Premium plan</h3>
+          <ul>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Unlimited Bandwidth
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Encrypted Connection
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Yes Traffic Logs
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Works on All Devices
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Connect Anyware
+            </li>
+            <li>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC9SURBVHgB7dDNDYIwGMbx520YwBGYALuCG2BiuOoIfsR4NB6NIY6gXPHgCKzQERiEtCJGY5BaKt7o/0TS0l/fAi6XyxThD/F0zRXklsB2IjqI+jpDxyqAZFZeNwSTw6Y9nZAXAAxIIRGTOGnap32u4LI8EigkzxuJ8T43AlE8052ln4RVS74qioxfN/6vwNdJ7gXp6kyEafmZPyeyBYzIBySxUAwnG6AVUoMeP1kArZF3yBawjqdzDperf90ABLBU0ve2SCkAAAAASUVORK5CYII=" />
+              Get New Features
+            </li>
+          </ul>
+          <div class="plan__price"><strong>12$</strong> / mo</div>
+          <button class="plan__button button button--primary">Select</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="locations">
+      <h2>Huge Global Network of Fast VPN</h2>
+      <p>
+        See <strong>LaslesVPN</strong> everywhere to make it easier for you when
+        you move locations.
+      </p>
+      <img
+        class="locations__img"
+        src="/assets/map.5c675ed6.png"
+        alt="Where do we work?"
+      />
+
+      <div class="locations__sponsers">
+        <img src="data:image/png;base64,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" alt="Netflix Logo" />
+        <img src="/assets/reddit-logo.dfd5c61c.png" alt="Reddit Logo" />
+        <img src="/assets/amazon-logo.dc930519.png" alt="Amazon Logo" />
+        <img src="/assets/discord-logo.9811f898.png" alt="Discord Logo" />
+        <img src="/assets/spotify-logo.c6074224.png" alt="Spotify Logo" />
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>Trusted by Thousands of Happy Customer</h2>
+      <p>
+        These are the stories of our customers who have joined us with great
+        pleasure when using this crazy feature.
+      </p>
+      <div class="testimonials__container">
+        <div class="testimonial testimonial--recommended">
+          <header class="testimonial__header">
+            <div class="testimonial__personal-info">
+              <img src="/assets/man-1-portrait.95768f57.png" alt="Man portrait" />
+              <div>
+                <h3>Viezh Robert</h3>
+                <div class="testimonial__address">Warsaw, Poland</div>
+              </div>
+            </div>
+            <div class="testimonial__rating">
+              4.5
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD+SURBVHgBzVLbDcIwDLyEwjcjtBt0BJiATMBjA0YoE8AGPCbIBrABbEBH6DeiCZeqoICaVnyBpUhX13e+2AH+OuxBrcu9ytpqRJC8VbHt4UpYiBKJWOiiqU6GBIxEVsMh8RLfOGD3lN3PXsq5GNPFpVHgflBzWpkQpq5jfULhRHID7KOp1tUVTMmkxYgw7iCjasJacvKXAxc32o4kjsy0C1gUd4PxoL7O2ww6RT7ILt62UP0QOCEQQkAPPgbZtMYYQffVnNAlkHqMgif3xbniYVDAzeBJtBYrYZDImU4c9oRinxP5H323XxZLg430nm5vpjN23nH3ilNvfNK/iwcXz2HwkeQUvQAAAABJRU5ErkJggg==" alt="" srcset="" />
+            </div>
+          </header>
+          <div class="testimonial__content">
+            “Wow... I am very happy to use this VPN, it turned out to be more
+            than my expectations and so far there have been no problems.
+            LaslesVPN always the best”.
+          </div>
+        </div>
+        <div class="testimonial">
+          <header class="testimonial__header">
+            <div class="testimonial__personal-info">
+              <img
+                src="/assets/woman-1-portrait.102aedde.png"
+                alt="Woman portrait"
+              />
+              <div>
+                <h3>Yessica Christy</h3>
+                <div class="testimonial__address">Shanxi, China</div>
+              </div>
+            </div>
+            <div class="testimonial__rating">
+              4.5
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD+SURBVHgBzVLbDcIwDLyEwjcjtBt0BJiATMBjA0YoE8AGPCbIBrABbEBH6DeiCZeqoICaVnyBpUhX13e+2AH+OuxBrcu9ytpqRJC8VbHt4UpYiBKJWOiiqU6GBIxEVsMh8RLfOGD3lN3PXsq5GNPFpVHgflBzWpkQpq5jfULhRHID7KOp1tUVTMmkxYgw7iCjasJacvKXAxc32o4kjsy0C1gUd4PxoL7O2ww6RT7ILt62UP0QOCEQQkAPPgbZtMYYQffVnNAlkHqMgif3xbniYVDAzeBJtBYrYZDImU4c9oRinxP5H323XxZLg430nm5vpjN23nH3ilNvfNK/iwcXz2HwkeQUvQAAAABJRU5ErkJggg==" alt="" srcset="" />
+            </div>
+          </header>
+          <div class="testimonial__content">
+            “I like it because I like to travel far and still can connect with
+            high speed.”.
+          </div>
+        </div>
+        <div class="testimonial">
+          <header class="testimonial__header">
+            <div class="testimonial__personal-info">
+              <img src="/assets/man-2-portrait.12231430.png" alt="Man portrait" />
+              <div>
+                <h3>Kim Young Jou</h3>
+                <div class="testimonial__address">Seoul, South Korea</div>
+              </div>
+            </div>
+            <div class="testimonial__rating">
+              4.5
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD+SURBVHgBzVLbDcIwDLyEwjcjtBt0BJiATMBjA0YoE8AGPCbIBrABbEBH6DeiCZeqoICaVnyBpUhX13e+2AH+OuxBrcu9ytpqRJC8VbHt4UpYiBKJWOiiqU6GBIxEVsMh8RLfOGD3lN3PXsq5GNPFpVHgflBzWpkQpq5jfULhRHID7KOp1tUVTMmkxYgw7iCjasJacvKXAxc32o4kjsy0C1gUd4PxoL7O2ww6RT7ILt62UP0QOCEQQkAPPgbZtMYYQffVnNAlkHqMgif3xbniYVDAzeBJtBYrYZDImU4c9oRinxP5H323XxZLg430nm5vpjN23nH3ilNvfNK/iwcXz2HwkeQUvQAAAABJRU5ErkJggg==" alt="" srcset="" />
+            </div>
+          </header>
+          <div class="testimonial__content">
+            “This is very unusual for my business that currently requires a
+            virtual private network that has high security.”.
+          </div>
+        </div>
+      </div>
+      <div class="testimonials__navigate">
+        <div class="testimonials__buttons">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="testimonials__arrows">
+          <button class="icon-button icon-button--secondary">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAfCAYAAADwbH0HAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFbSURBVHgB7ZXNTcNAEIXfmogIEiTogBLCIcoe7Q4oATowFcSpAFIBpgJKiI8r5ZIS0gFI/EWAMG8cR7KQgxd2xQH5u+zOaqWnnX0zA7S0/DfUTy7faX3cAc7egfTImCUc6NheFNFdYMatrAOup3AgsL3YBa5FtAwXcMRK+EnrcQ6Ess+VmvaMSeBIo7CIcknKcNnrdhN44FtzPWgdBut/LUS5j/YcTdUoXDVTnuf3O0qd+BIVgibR8mjiU1SoffHzaHRLEzmVS4WUZjz/elj74o2DPRHWHdY2EL72Qq3rdhNP5Z/xO7K6w63moqMTpmNcXsr2jYngka11fMAmwZTfyF5Sz3+/xF8IC2+rVQylivbIdMcUj+GJxun0wtL6qJQW9xGzkcERq7H4OBwOVBDM+PpD0GSvbCauY9FqSPTn84U4vQgozuZyBUesx2LfmJRpnpSh81hsaWnxxid/RmX1uAXAYgAAAABJRU5ErkJggg==" />
+          </button>
+          <button class="icon-button icon-button--primary">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAfCAYAAADwbH0HAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADASURBVHgB7ZRbDcJAFERnEwQgoThAQnGAA5BQB9QB4AAnlYCExcFKuMyGJl1u6Aev+dqTTDZtmpy0mQ5QqVQcZtYwfT6hhMLBHkRmCRWUdTYxQAmFl0J+hIr8iZlrIe+gYixZLOQtVFC2ZtIoTtKmU7Yv3vq9pruyfMvLpocZceLxq3/yFkJY+ZuLmYc3zBaf0TC74voMBTYtWaaHAooOhfQEBU4aTbHblLRO2uDf2PNi6UbDlUm60Z20wZVKxXMHLGRD6zIPM/IAAAAASUVORK5CYII=" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__mailing-list">
+        <div>
+          <h2>Subscribe Now for Get Special Features!</h2>
+          <p>Let's subscribe with us and find the fun.</p>
+        </div>
+        <button class="button button--primary">Subscribe now</button>
+      </div>
+      <div class="footer__content">
+        <div>
+          <div class="logo">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAlCAYAAADIgFBEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANjSURBVHgBtZjdUdtAEMd3T4BFAjOmA6UCzAODeIpdAe4AU0GSCmwqCKkAUwGhApQ3M7woFUQdWDPB2E5sXXZlyZGlk2R98J/xSLrbvfvdnW73ZICKGpum8Wqaj3yFikKoIAbYA3ikW4N+zh+AztFo5EBJlYaJgYSqBFQKJgWkMlBhmByQSkCFYLYEKQ20NUxBkFJAYhujPBAJYKW4+n7bbvtcmC1m5PpgNOp4dIWKQFgV5P1oNAgffpvmgEbXT7HNXTKsC6QOIKwTpCoQ1g1SBQjfAqQsEL4VyNZAun5yZFkuP6y39i7AoG4Q1iH5ZW37xnx+Gz74M/Nimj26uYWaQaLKmiGC7RC0JQKifhEQargN2R0n6rNmSAv6F4GjobAZqkBez84+0QguIVttsvusAkIpv8fLKZ20mUOAlF1Va0IxiqlpXkrEGxrhHWTLIruvbB+vQMQvKgcq7woN8VhR97AfiwGT8/MuQQz5ntcXMrSYzWy+sn0ciNtFRWIVUh7TT7biFVS2YTw+PW1Jz0t7wRM6sm03vPekvHkh/2g9lT0k+qRXRdD8NOMVtM1/rUEo/uwK8YgRu2lOBh63Wv/bJD8k/ygQwTgKNyP3CLED0MMYME9ppo+ub842+UtN60KOGMaJF/4F+BDeS1W9EB3IEL0TvXhZtB2BaCScpHQFKjoj44tIw4l69LzLcbudWF4WLyv5fEz4RNqhZUvWI9piCfADkqNohyczf2cQdcyzuTebJeIIa28Vg4x4+ULX7RBWFU48xJ+8TJaq0UaQHnhnMLXCpB/fJcEABgrbhzAZ7qrriXYxFBwzVPueZ4d2jR+mlylhHDXtPpzBSNZPaEdKf2ATag9V0VtK++D52fYT5SoUqxsiDenccc0zxYApNg6kZ3z/mNCYTvsUlZVLS333KBjerc8zlEvuybib0RlAsW+mtS8F0SYq4lkgzoFXAdRK8/n8ChQ7JwJhQDkZGSDOO11f56o1DL+o9NDJAKpbDveHwYu9AcPiJOYbKNJ8neIvUJqRk/2sA3lUwemPd5MBdUGs4tX1wdPTjao+98Pfh5LygneSau3ppbep3qZrC9UnAJeCpE1B7dtho2FFl6UwTFScrRfBTFECdXRdd6ONS0oRk8nEoKTYxOXS1TTN3S/wl8g/oYi2a8WRx9kAAAAASUVORK5CYII=" alt="Logo" />
+            <div class="logo__text">Lasles<strong>VPN</strong></div>
+          </div>
+          <p>
+            <strong>LaslesVPN</strong> is a private virtual network that has
+            unique features and has high security.
+          </p>
+          <div class="footer__social-media">
+            <a href="#" class="icon-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="icon-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21.231 0h-18.462c-1.529 0-2.769 1.24-2.769 2.769v18.46c0 1.531 1.24 2.771 2.769 2.771h18.463c1.529 0 2.768-1.24 2.768-2.771v-18.46c0-1.529-1.239-2.769-2.769-2.769zm-9.231 7.385c2.549 0 4.616 2.065 4.616 4.615 0 2.549-2.067 4.616-4.616 4.616s-4.615-2.068-4.615-4.616c0-2.55 2.066-4.615 4.615-4.615zm9 12.693c0 .509-.413.922-.924.922h-16.152c-.511 0-.924-.413-.924-.922v-10.078h1.897c-.088.315-.153.64-.2.971-.05.337-.081.679-.081 1.029 0 4.079 3.306 7.385 7.384 7.385s7.384-3.306 7.384-7.385c0-.35-.031-.692-.081-1.028-.047-.331-.112-.656-.2-.971h1.897v10.077zm0-13.98c0 .509-.413.923-.924.923h-2.174c-.511 0-.923-.414-.923-.923v-2.175c0-.51.412-.923.923-.923h2.174c.511 0 .924.413.924.923v2.175z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <a href="#" class="icon-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                />
+              </svg>
+            </a>
+          </div>
+          <p class="footer__copyright">©2020Lasles<strong>VPN</strong></p>
+        </div>
+        <div class="footer__links-container">
+          <div class="footer__links-group">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="#">Download</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">Server</a></li>
+              <li><a href="#">Countries</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer__links-group">
+            <h3>Engage</h3>
+            <ul>
+              <li><a href="#">LaslesVPN ?</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Tutorials</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer__links-group">
+            <h3>Earn money</h3>
+            <ul>
+              <li><a href="#">Affiliate</a></li>
+              <li><a href="#">Become Partner</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
